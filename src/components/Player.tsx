@@ -22,7 +22,7 @@ const Player = (props: any) => {
         <Card
           key={index}
           cardData={{ ...card, animationDelay: 0 }}
-          applyFoldedClassname={index % 2 === 0 ? true : false}
+          applyFoldedClassname={false}
         />
       );
     });

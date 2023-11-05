@@ -6,7 +6,18 @@ export const generateTable = () => {
       id: "one",
       name: "Player 1",
       avatarURL: boy,
-      cards: [],
+      cards: [
+        {
+          cardFace: "4",
+          suit: "Spade",
+          value: 3,
+        },
+        {
+          cardFace: "7",
+          suit: "Diamond",
+          value: 6,
+        },
+      ],
       showDownHand: {
         hand: [],
         descendingSortHand: [],
@@ -27,7 +38,18 @@ export const generateTable = () => {
       id: "two",
       name: "Player 2",
       avatarURL: boy,
-      cards: [],
+      cards: [
+        {
+          cardFace: "2",
+          suit: "Heart",
+          value: 3,
+        },
+        {
+          cardFace: "A",
+          suit: "Club",
+          value: 6,
+        },
+      ],
       showDownHand: {
         hand: [],
         descendingSortHand: [],

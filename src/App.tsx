@@ -46,7 +46,7 @@ function App() {
               {/* {this.renderCommunityCards()} */}
             </div>
             <div className="pot-container">
-              Three
+              // POT HERE
               {/* <img
                 style={{ height: 55, width: 55 }}
                 src={"./assets/pot.svg"}
@@ -58,11 +58,11 @@ function App() {
           {/* {this.state.phase === "showdown" && this.renderShowdown()} */}
           <div className="game-action-bar">
             <div className="action-buttons">
-              Four
+              // ACTION BUTTONS HERE
               {/* {this.renderActionButtons()} */}
             </div>
             <div className="slider-boi">
-              Five
+              // MENU HERE
               {/* {!this.state.loading &&
                 renderActionMenu(
                   highBet,
