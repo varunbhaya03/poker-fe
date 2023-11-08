@@ -12,11 +12,13 @@ function App() {
 
   useEffect(() => {
     setPlayers(generateTable());
+    setPlayerName("a");
+    handleJoinGame();
   }, []);
 
-  // const handleJoinGame = () => {
-  //   return joinGame(playerName);
-  // };
+  const handleJoinGame = () => {
+    return joinGame(playerName);
+  };
 
   const renderBoard = () => {
     return players.map((player: any, index: number) => {
