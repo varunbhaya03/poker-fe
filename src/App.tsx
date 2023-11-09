@@ -8,6 +8,7 @@ import { generateTable } from "./utils/players";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { useAccount } from "wagmi";
 import { io } from "socket.io-client";
+import PlayerObj from "./utils/player"
 
 const socket = io("http://localhost:3000", { transports: ["websocket"] });
 
@@ -19,7 +20,22 @@ function App() {
 
   useEffect(() => {
     console.log("Address " + address);
-    setPlayers(generateTable());
+    let name = address?.toString();
+    name = name?.substring(0, 5) + "..." + name?.substring(name.length - 3);
+    const player1 = new PlayerObj(address?.toString() ?? "", name);
+    const player2 = new PlayerObj(address?.toString() ?? "0x...", name);
+
+    player1.cards = [
+      { cardFace: "4", suit: "Spade", value: 4 },
+      { cardFace: "7", suit: "Diamond", value: 7 },
+    ];
+    
+    player2.cards = [
+      { cardFace: "A", suit: "Heart", value: 14 }, // Assuming Ace is high
+      { cardFace: "10", suit: "Club", value: 10 },
+    ];
+    
+    setPlayers(generateTable([player1, player2]));
     setPlayerName(address);
     handleJoinGame();
   }, []);
@@ -32,7 +48,7 @@ function App() {
     return players.map((player: any, index: number) => {
       return (
         <Player
-        robot={true}
+          robot={true}
           key={index}
           arrayIndex={index}
           isActive={true}
@@ -75,18 +91,20 @@ function App() {
                 // onClick={() =>
                 //   this.handleBetInputSubmit(betInputValue, min, max)
                 // }
-              > Call
+              >
+                {" "}
+                Call
               </button>
               <button
                 className="action-button"
                 // onClick={() =>
                 //   this.handleBetInputSubmit(betInputValue, min, max)
                 // }
-              > Check
+              >
+                {" "}
+                Check
               </button>
-              <button className="fold-button" >
-                Fold
-              </button>
+              <button className="fold-button">Fold</button>
               {/* {this.renderActionButtons()} */}
 
               <input type="text" className="bet-input"></input>
@@ -95,12 +113,12 @@ function App() {
                 // onClick={() =>
                 //   this.handleBetInputSubmit(betInputValue, min, max)
                 // }
-              > Bet/Raise
+              >
+                {" "}
+                Bet/Raise
               </button>
-
             </div>
             <div className="slider-boi">
-              
               {/* {!this.state.loading &&
                 renderActionMenu(
                   highBet,

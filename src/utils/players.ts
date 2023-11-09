@@ -1,70 +1,23 @@
 import boy from "../assets/boy.svg";
+import Player from "./player";
 
-export const generateTable = () => {
-  return [
-    {
-      id: "one",
-      name: "Player 1",
-      avatarURL: boy,
-      cards: [
-        {
-          cardFace: "4",
-          suit: "Spade",
-          value: 3,
-        },
-        {
-          cardFace: "7",
-          suit: "Diamond",
-          value: 6,
-        },
-      ],
-      showDownHand: {
-        hand: [],
-        descendingSortHand: [],
-      },
-      chips: 20000,
-      roundStartChips: 20000,
-      roundEndChips: 20000,
-      currentRoundChipsInvested: 0,
-      bet: 0,
-      betReconciled: false,
-      folded: false,
-      allIn: false,
-      canRaise: true,
-      stackInvestment: 0,
-      robot: false,
-    },
-    {
-      id: "two",
-      name: "Player 2",
-      avatarURL: boy,
-      cards: [
-        {
-          cardFace: "2",
-          suit: "Heart",
-          value: 3,
-        },
-        {
-          cardFace: "A",
-          suit: "Club",
-          value: 6,
-        },
-      ],
-      showDownHand: {
-        hand: [],
-        descendingSortHand: [],
-      },
-      chips: 20000,
-      roundStartChips: 20000,
-      roundEndChips: 20000,
-      currentRoundChipsInvested: 0,
-      bet: 0,
-      betReconciled: false,
-      folded: false,
-      allIn: false,
-      canRaise: true,
-      stackInvestment: 0,
-      robot: false,
-    },
-  ];
+export const generateTable = (players: Player[]) => {
+  return players.map(player => ({
+    id: player.id,
+    name: player.name,
+    avatarURL: boy,
+    cards: player.cards,
+    showDownHand: player.showDownHand,
+    chips: player.chips,
+    roundStartChips: player.roundStartChips,
+    roundEndChips: player.roundEndChips,
+    currentRoundChipsInvested: player.currentRoundChipsInvested,
+    bet: player.bet,
+    betReconciled: player.betReconciled,
+    folded: player.folded,
+    allIn: player.allIn,
+    canRaise: player.canRaise,
+    stackInvestment: player.stackInvestment,
+    robot: player.robot,
+  }));
 };
