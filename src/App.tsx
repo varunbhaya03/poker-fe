@@ -4,6 +4,7 @@ import useAppSocket from "./hooks/useAppSocket";
 import tableSvg from "./assets/table-nobg-svg-01.svg";
 import Player from "./components/Player";
 import { generateTable } from "./utils/players";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 function App() {
   const [playerName, setPlayerName] = useState<string>("");
@@ -58,6 +59,7 @@ function App() {
             </div>
           </div>
           {/* {this.state.phase === "showdown" && this.renderShowdown()} */}
+
           <div className="game-action-bar">
             <div className="action-buttons">
               // ACTION BUTTONS HERE
@@ -74,6 +76,17 @@ function App() {
                   this.handleBetInputChange
                 )} */}
             </div>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "flex-end",
+              marginTop: "70px",
+
+              marginRight: "70px",
+            }}
+          >
+            <ConnectButton />
           </div>
         </div>
       </div>
