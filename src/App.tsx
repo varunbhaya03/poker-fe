@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import "./Poker.css";
 import useAppSocket from "./hooks/useAppSocket";
 import tableSvg from "./assets/table-nobg-svg-01.svg";
 import Player from "./components/Player";
@@ -8,7 +9,7 @@ import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { useAccount } from "wagmi";
 import { io } from "socket.io-client";
 
-const socket = io("http://localhost:5000", { transports: ["websocket"] });
+const socket = io("http://localhost:3000", { transports: ["websocket"] });
 
 function App() {
   const { address } = useAccount();
@@ -68,11 +69,37 @@ function App() {
 
           <div className="game-action-bar">
             <div className="action-buttons">
-              // ACTION BUTTONS HERE
+              <button
+                className="action-button"
+                // onClick={() =>
+                //   this.handleBetInputSubmit(betInputValue, min, max)
+                // }
+              > Call
+              </button>
+              <button
+                className="action-button"
+                // onClick={() =>
+                //   this.handleBetInputSubmit(betInputValue, min, max)
+                // }
+              > Check
+              </button>
+              <button className="fold-button" >
+                Fold
+              </button>
               {/* {this.renderActionButtons()} */}
+
+              <input type="text" className="bet-input"></input>
+              <button
+                className="action-button"
+                // onClick={() =>
+                //   this.handleBetInputSubmit(betInputValue, min, max)
+                // }
+              > Bet/Raise
+              </button>
+
             </div>
             <div className="slider-boi">
-              // MENU HERE
+              
               {/* {!this.state.loading &&
                 renderActionMenu(
                   highBet,
@@ -87,7 +114,7 @@ function App() {
             style={{
               display: "flex",
               justifyContent: "flex-end",
-              marginTop: "70px",
+              marginTop: "30px",
 
               marginRight: "70px",
             }}

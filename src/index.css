@@ -288,9 +288,14 @@ img {
   height: 100%;
 }
 
+.bet-input{
+  height: 40px;
+  width: 200px;
+}
+
 .action-button {
   height: 45px;
-  width: 125px;
+  width: 160px;
   margin: 0 12px;
   border-radius: 500px;
   background-color: rgba(242, 242, 242, 0.8);
