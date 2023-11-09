@@ -9,6 +9,7 @@ import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { useAccount } from "wagmi";
 import { io } from "socket.io-client";
 import PlayerObj from "./utils/player"
+import chipCountImageURL from "../src/assets/chips.svg";
 
 const socket = io("http://localhost:3000", { transports: ["websocket"] });
 
@@ -73,7 +74,14 @@ function App() {
               {/* {this.renderCommunityCards()} */}
             </div>
             <div className="pot-container">
-              // POT HERE
+            <div className="player-info--stash--container">
+            <img
+              className="player-info--stash--image"
+              src={chipCountImageURL}
+              alt="Player Stash"
+            />
+            <h3>{`20000`}</h3>
+          </div>
               {/* <img
                 style={{ height: 55, width: 55 }}
                 src={"./assets/pot.svg"}
