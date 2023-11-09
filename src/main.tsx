@@ -30,7 +30,7 @@ const root = ReactDOM.createRoot(
 );
 
 console.log("wagmoconf " + JSON.stringify(wagmiConfig));
-console.log("chains " + JSON.stringify(chains));
+console.log("chains ", chains);
 
 root.render(
   // <React.StrictMode>
@@ -42,7 +42,9 @@ root.render(
   // </React.StrictMode>
   <WagmiConfig config={wagmiConfig}>
     <RainbowKitProvider chains={chains}>
-      <App />
+      <div style={{ height: "100vh", overflow: "auto" }}>
+        <App />
+      </div>
     </RainbowKitProvider>
   </WagmiConfig>
   // <React.StrictMode>
