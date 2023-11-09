@@ -1,4 +1,5 @@
 import Card from "./Card";
+import HiddenCard from "./HiddenCard";
 
 import dealerChipImageURL from "../assets/chip.svg";
 import chipCountImageURL from "../assets/chips.svg";

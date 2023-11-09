@@ -32,6 +32,7 @@ function App() {
     return players.map((player: any, index: number) => {
       return (
         <Player
+        robot={true}
           key={index}
           arrayIndex={index}
           isActive={true}
