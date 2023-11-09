@@ -5,20 +5,26 @@ import tableSvg from "./assets/table-nobg-svg-01.svg";
 import Player from "./components/Player";
 import { generateTable } from "./utils/players";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
+import { useAccount } from "wagmi";
+import { io } from "socket.io-client";
+
+const socket = io("http://localhost:5000", { transports: ["websocket"] });
 
 function App() {
-  const [playerName, setPlayerName] = useState<string>("");
+  const { address } = useAccount();
+  const [playerName, setPlayerName] = useState<any>("");
   const { joinGame } = useAppSocket();
   const [players, setPlayers] = useState<Array<any>>([]);
 
   useEffect(() => {
+    console.log("Address " + address);
     setPlayers(generateTable());
-    setPlayerName("a");
+    setPlayerName(address);
     handleJoinGame();
   }, []);
 
   const handleJoinGame = () => {
-    return joinGame(playerName);
+    socket.emit("joinGame", address);
   };
 
   const renderBoard = () => {
